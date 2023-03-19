@@ -29,6 +29,10 @@ This code was extracted from
  
 ## Versions
 
+### 1.0.2
+
+- Switched Package version to 5.7 (to work with Swift 5.7).
+
 ### 1.0.1
 
 First version.
