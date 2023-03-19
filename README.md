@@ -29,6 +29,10 @@ This code was originally extracted from
  
 ## Versions
 
+### 1.0.4
+
+Upped iOS and related version minimum to 15 (the actual API at which AttributedString is available.)
+
 ### 1.0.3
 
 - Dropped iOS and related version minimum to 13.
