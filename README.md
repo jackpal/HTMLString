@@ -24,10 +24,16 @@ struct MyView: View {
 
 ## Credits
 
-This code was extracted from
+This code was originally extracted from
 [IceCubesApp](https://github.com/Dimillian/IceCubesApp/blob/main/Packages/Models/Sources/Models/Alias/HTMLString.swift)
  
 ## Versions
+
+### 1.0.3
+
+- Dropped iOS and related version minimum to 13.
+- Recognize <b> and <i> tags.
+- Limited support for <blockquote> tag.
 
 ### 1.0.2
 

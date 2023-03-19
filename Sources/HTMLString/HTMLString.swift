@@ -131,6 +131,31 @@ public struct HTMLString: Codable, Equatable, Hashable, @unchecked Sendable {
         if asMarkdown.count > 0 { // ignore first opening <br>
           asMarkdown += "\n"
         }
+      } else if node.nodeName() == "b" {
+        asMarkdown += "**"
+        // Descend into children
+        for nn in node.getChildNodes() {
+          handleNode(node: nn)
+        }
+        asMarkdown += "**"
+        return
+      } else if node.nodeName() == "i" {
+        asMarkdown += "*"
+        // Descend into children
+        for nn in node.getChildNodes() {
+          handleNode(node: nn)
+        }
+        asMarkdown += "*"
+        return
+      } else if node.nodeName() == "blockquote" {
+        // Barely works: doesn't handle long quoted text, paragraphs or nested block quotes.
+        asMarkdown += "\n\n> "
+        // Descend into children
+        for nn in node.getChildNodes() {
+          handleNode(node: nn)
+        }
+        asMarkdown += "\n\n"
+        return
       } else if node.nodeName() == "a" {
         let href = try node.attr("href")
         if href != "" {
