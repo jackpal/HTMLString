@@ -27,3 +27,9 @@ struct MyView: View {
 This code was extracted from
 [IceCubesApp](https://github.com/Dimillian/IceCubesApp/blob/main/Packages/Models/Sources/Models/Alias/HTMLString.swift)
  
+## Versions
+
+### 1.0.1
+
+First version.
+
