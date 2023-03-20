@@ -29,6 +29,10 @@ This code was originally extracted from
  
 ## Versions
 
+### 1.1.0
+
+Added HTMLString(html:String) intializer for intializing from a HTML string.
+
 ### 1.0.4
 
 Upped iOS and related version minimum to 15 (the actual API at which AttributedString is available.)

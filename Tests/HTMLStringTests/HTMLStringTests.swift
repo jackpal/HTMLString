@@ -40,4 +40,14 @@ Before\u{20}
  After
 """)
   }
+  
+  func testDecodeFromString() throws {
+    let htmlString = "An <b>html</b> <i>string</i>. <a href='https://example.com'>Example link</a>"
+    
+    let html = HTMLString(html: htmlString)
+
+    XCTAssertEqual(html.asRawText, "An html string. Example link")
+    XCTAssertEqual(html.asMarkdown, "An **html** *string*. [Example link](https://example.com)")
+  }
+
 }
