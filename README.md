@@ -29,6 +29,10 @@ This code was originally extracted from
  
 ## Versions
 
+### 1.1.1
+
+Unescape entities. RawText and markdownText no loger have escaped entities like `&amp;`
+
 ### 1.1.0
 
 Added HTMLString(html:String) intializer for intializing from a HTML string.

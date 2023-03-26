@@ -71,6 +71,11 @@ public struct HTMLString: Codable, Equatable, Hashable, @unchecked Sendable {
         _ = text.removeLast()
         _ = text.removeLast()
       }
+      
+      if let unescapedText = try? Entities.unescape(text) {
+        text = unescapedText
+      }
+      
       asRawText = text
       
       if asMarkdown.hasPrefix("\n") {
@@ -196,6 +201,11 @@ public struct HTMLString: Codable, Equatable, Hashable, @unchecked Sendable {
           txt = main_regex.stringByReplacingMatches(in: txt, options: [], range: NSRange(location: 0, length: txt.count), withTemplate: "\\\\$1")
           txt = underscore_regex.stringByReplacingMatches(in: txt, options: [], range: NSRange(location: 0, length: txt.count), withTemplate: "\\\\$1")
         }
+        
+        if let unescapedTxt = try? Entities.unescape(txt) {
+          txt = unescapedTxt
+        }
+        
         // Strip newlines and line separators - they should be being sent as <br>s
         asMarkdown += txt.replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\u{2028}", with: "")
       }

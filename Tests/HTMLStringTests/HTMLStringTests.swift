@@ -49,5 +49,15 @@ Before\u{20}
     XCTAssertEqual(html.asRawText, "An html string. Example link")
     XCTAssertEqual(html.asMarkdown, "An **html** *string*. [Example link](https://example.com)")
   }
+  
+  func testDecodeEscapedTextFromString() throws {
+    let htmlString = "An <b>html</b> <i>string</i> &amp; an <a href='https://example.com'>example link</a>"
+    
+    let html = HTMLString(html: htmlString)
+
+    XCTAssertEqual(html.asRawText, "An html string & an example link")
+    XCTAssertEqual(html.asMarkdown, "An **html** *string* & an [example link](https://example.com)")
+
+  }
 
 }
